@@ -9,6 +9,8 @@ RUN apt-get update && \
 apt-get install -y python3-pip &&\
 pip3 install dataserv-client==1.1.0
 
+#2 - Clean up
+
 RUN apt-get clean &&\
 apt-get purge
 
