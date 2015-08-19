@@ -14,3 +14,5 @@ pip3 install dataserv-client==1.1.0
 RUN apt-get clean &&\ 
 apt-get purge
 
+#3 - Create dataserv mountpoint
+RUN mkdir /var/storj
