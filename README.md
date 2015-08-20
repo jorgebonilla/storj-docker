@@ -11,7 +11,9 @@ cd storj-docker/dataserv-client
 docker -t jorgebonilla/storj-dataserv-client build .
 ```
 2. Run docker image:
-```docker run -it -v <Storj Directory>:/var/storj jorgebonilla/storj-dataserv-client bash```
+```
+docker run -it -v <Storj Directory>:/var/storj jorgebonilla/storj-dataserv-client bash
+```
 
 3. register your address:
 ```
