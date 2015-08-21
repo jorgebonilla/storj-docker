@@ -26,6 +26,13 @@ root@8834f7426e1a:/# dataserv-client --store_path=/var/storj --max_size=13421772
 ***This might take a while***
 
 5 Let the poll run:
+
+From within the docker container:
  ```
 dataserv-client --address=<bitcoin address> poll
  ```
+ From docker host:
+ ```
+ docker run jorgebonilla/storj-dataserv-client:0.1 dataserv-client --address=<bitcoin address> poll
+ ```
+ 
