@@ -24,6 +24,7 @@ Address <bitcoin address> now registered on http://104.236.104.117.
 root@8834f7426e1a:/# dataserv-client --store_path=/var/storj --max_size=13421772800 --address=<bitcoin address> build
 ```
 ***This might take a while***
+
 5 Let the poll run:
  ```
 dataserv-client --address=<bitcoin address> poll
