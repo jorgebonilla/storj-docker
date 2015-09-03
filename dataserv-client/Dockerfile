@@ -27,6 +27,7 @@ RUN dataserv-client config --set_payout_address=1NytpEjVPRhJxzdbdxZZGFm5sbiZFgVW
 RUN  dataserv-client --url=http://status.driveshare.org:5000 register
 
 #7 create shards - Change the max_size before running
+VOLUME /media/storj:/var/storj
 RUN dataserv-client --url=http://status.driveshare.org:5000 --store_path=/var/storj --max_size=1TB build
 
 #8 let the network know you are online
