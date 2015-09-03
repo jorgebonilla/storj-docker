@@ -8,20 +8,28 @@ Usage
 ```
 git clone https://github.com/jorgebonilla/storj-docker.git
 cd storj-docker/dataserv-client
-docker -t jorgebonilla/storj-dataserv-client build .
+export SJCX_ADDRESS=<ENTER_YOUR_SJCX_ADDRESS>
+docker -t jorgebonilla/storj-dataserv-client:2.0.3 build .
 ```
-2 Run docker image:
+The Dockerfile will execute the following commands for you:
 ```
-docker run -it -v <Storj Directory>:/var/storj jorgebonilla/storj-dataserv-client bash
+dataserv-client config --set_payout_address=$SJCX_ADDRESS
+dataserv-client --url=http://status.driveshare.org:5000 register
 ```
-3 Register your address:
+
+dataserv-client --url=http://status.driveshare.org:5000 --store_path=/var/storj --max_size=1TB build
+dataserv-client ping
+
+
+3 Run the Docker Container:
 ```
-root@8834f7426e1a:/# dataserv-client --address=<bitcoin address> register
-Address <bitcoin address> now registered on http://104.236.104.117.
+docker run -it -v /media/storj:/var/storj jorgebonilla/dataserv-client:2.0.3 bash
+dataserv-client version 
 ```
 4 Build the storj datastore:
 ```
 root@8834f7426e1a:/# dataserv-client --store_path=/var/storj --max_size=13421772800 --address=<bitcoin address> build
+root@8834f7426e1a:/# dataserv-client ping
 ```
 ***This might take a while***
 
@@ -29,10 +37,10 @@ root@8834f7426e1a:/# dataserv-client --store_path=/var/storj --max_size=13421772
 
 From within the docker container:
  ```
-dataserv-client --address=<bitcoin address> poll
+dataserv-client poll
  ```
  From docker host:
  ```
- docker run jorgebonilla/storj-dataserv-client:0.1 dataserv-client --address=<bitcoin address> poll
+ docker run -d jorgebonilla/storj-dataserv-client:2.0.3 dataserv-client poll
  ```
  
