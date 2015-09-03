@@ -17,10 +17,6 @@ dataserv-client config --set_payout_address=$SJCX_ADDRESS
 dataserv-client --url=http://status.driveshare.org:5000 register
 ```
 
-dataserv-client --url=http://status.driveshare.org:5000 --store_path=/var/storj --max_size=1TB build
-dataserv-client ping
-
-
 3 Run the Docker Container:
 ```
 docker run -it -v /media/storj:/var/storj jorgebonilla/dataserv-client:2.0.3 bash
