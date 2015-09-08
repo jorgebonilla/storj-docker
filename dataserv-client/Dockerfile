@@ -2,6 +2,8 @@ FROM ubuntu:latest
 MAINTAINER jorge.luis.bonilla@gmail.com
 
 ENV DEBIAN_FRONTEND noninteractive
+#Modify this line with your SJCX address
+ENV SJCX_ADDRESS=<ENTER_YOUR_SJCX_ADDRESS>
 
 # 1 - Install dataserv-client v1.1.0
 
@@ -21,14 +23,8 @@ RUN pip3 install dataserv-client --upgrade #2.0.3
 RUN mkdir /var/storj
 
 #5 Register payout address - Change this address to your own before running
-RUN dataserv-client config --set_payout_address=1NytpEjVPRhJxzdbdxZZGFm5sbiZFgVW3Y
+RUN dataserv-client config --set_payout_address=$SJCX_ADDRESS
 
 #6 register your node
 RUN  dataserv-client --url=http://status.driveshare.org:5000 register
 
-#7 create shards - Change the max_size before running
-VOLUME /media/storj:/var/storj
-RUN dataserv-client --url=http://status.driveshare.org:5000 --store_path=/var/storj --max_size=1TB build
-
-#8 let the network know you are online
-RUN dataserv-client ping
