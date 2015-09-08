@@ -8,7 +8,9 @@ Usage
 ```
 git clone https://github.com/jorgebonilla/storj-docker.git
 cd storj-docker/dataserv-client
-export SJCX_ADDRESS=<ENTER_YOUR_SJCX_ADDRESS>
+````
+Before running the build command, make sure you add the right SJCX address to the Dockerfile.
+```
 docker -t jorgebonilla/storj-dataserv-client:2.0.3 build .
 ```
 The Dockerfile will execute the following commands for you:
