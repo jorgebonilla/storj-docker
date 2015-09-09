@@ -11,7 +11,7 @@ cd storj-docker/dataserv-client
 ````
 Before running the build command, make sure you add the right SJCX address to the Dockerfile.
 ```
-docker -t jorgebonilla/storj-dataserv-client:2.0.3 build .
+docker build -t jorgebonilla/storj-dataserv-client:2.0.3  .
 ```
 The Dockerfile will execute the following commands for you:
 ```
