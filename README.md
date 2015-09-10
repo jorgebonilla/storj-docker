@@ -16,7 +16,7 @@ docker build -t jorgebonilla/storj-dataserv-client:2.0.3  .
 The Dockerfile will execute the following commands for you:
 ```
 dataserv-client config --set_payout_address=$SJCX_ADDRESS
-dataserv-client --url=http://status.driveshare.org:5000 register
+dataserv-client --config_path /root/.storj/config.json --url=http://status.driveshare.org:5000 register
 ```
 3 Run the Docker Container:
 ```
@@ -25,15 +25,15 @@ dataserv-client version
 ```
 4 Build the storj datastore:
 ```
-root@8834f7426e1a:/# dataserv-client --url=http://status.driveshare.org:5000 --store_path=/var/storj --max_size=1TB build
+root@8834f7426e1a:/# dataserv-client --config_path /root/.storj/config.json --url=http://status.driveshare.org:5000 --store_path=/var/storj --max_size=1TB build
 ***This might take a while***
-root@8834f7426e1a:/# dataserv-client ping
+root@8834f7426e1a:/# dataserv-client --config_path /root/.storj/config.json --url=http://status.driveshare.org:5000 ping
 ```
 5 Let the poll run:
 
 From within the docker container:
  ```
-dataserv-client poll
+dataserv-client --config_path /root/.storj/config.json --url=http://status.driveshare.org:5000 poll
  ```
  From docker host:
  ```
