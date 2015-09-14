@@ -17,13 +17,13 @@ The Dockerfile will execute the following commands for you:
 ```
 dataserv-client --url=http://switch.driveshare.org config --set_payout_address=$SJCX_ADDRESS
 ```
-3 Run the Docker Container:
+2 Run the Docker Container:
 ```
 docker run -it -v </your/storage/location>:/var/storj jorgebonilla/dataserv-client:2.1.3 bash
 dataserv-client version 
 ```
 
-4 Let the poll run it will autmatically build the datastore:
+3 Let the poll run, it will automatically build the datastore:
 
 From within the docker container:
  ```
