@@ -11,32 +11,26 @@ cd storj-docker/dataserv-client
 ````
 Before running the build command, make sure you add the right SJCX address to the Dockerfile.
 ```
-docker build -t jorgebonilla/storj-dataserv-client:2.0.3  .
+docker build -t jorgebonilla/dataserv-client:2.1.3  .
 ```
 The Dockerfile will execute the following commands for you:
 ```
-dataserv-client config --set_payout_address=$SJCX_ADDRESS
-dataserv-client --config_path /root/.storj/config.json --url=http://status.driveshare.org:5000 register
+dataserv-client --url=http://switch.driveshare.org config --set_payout_address=$SJCX_ADDRESS
 ```
 3 Run the Docker Container:
 ```
-docker run -it -v </your/storage/location>:/var/storj jorgebonilla/dataserv-client:2.0.3 bash
+docker run -it -v </your/storage/location>:/var/storj jorgebonilla/dataserv-client:2.1.3 bash
 dataserv-client version 
 ```
-4 Build the storj datastore:
-```
-root@8834f7426e1a:/# dataserv-client --config_path /root/.storj/config.json --url=http://status.driveshare.org:5000 --store_path=/var/storj --max_size=1TB build
-***This might take a while***
-root@8834f7426e1a:/# dataserv-client --config_path /root/.storj/config.json --url=http://status.driveshare.org:5000 ping
-```
-5 Let the poll run:
+
+4 Let the poll run it will autmatically build the datastore:
 
 From within the docker container:
  ```
-dataserv-client --config_path /root/.storj/config.json --url=http://status.driveshare.org:5000 poll
+dataserv-client --url=http://switch.driveshare.org --max_size=<maxSize> --store_path=/var/storj farm
  ```
  From docker host:
  ```
- docker run -d jorgebonilla/storj-dataserv-client:2.0.3 dataserv-client poll
+docker run -v </your/storage/location>:/var/storj -d jorgebonilla/dataserv-client:2.1.3 dataserv-client --url=http://switch.driveshare.org --max_size=<maxSize> --store_path=/var/storj farm
  ```
  
