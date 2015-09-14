@@ -34,3 +34,6 @@ dataserv-client --url=http://switch.driveshare.org --max_size=<maxSize> --store_
 docker run -v </your/storage/location>:/var/storj -d jorgebonilla/dataserv-client:2.1.3 dataserv-client --url=http://switch.driveshare.org --max_size=<maxSize> --store_path=/var/storj farm
  ```
  
+For more info refer to the [storj project] (https://github.com/Storj/dataserv-client "Storj Project")
+
+If this was helpfull to you in anyway, please feel free to drop a tip @ [1GkYUGuqgXaV2dpdkZAC97ytYaKRFKdVqT](bitcoin:1GkYUGuqgXaV2dpdkZAC97ytYaKRFKdVqT "Bitcoin Address")
