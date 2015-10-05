@@ -1,6 +1,11 @@
 # storj-docker
 Storj Dataserv Client
 
+Note: Make sure your Docker hosts time is in sync. Bad things can happen with a off-synced time.
+````
+ntpdate <your favorite ntp server>
+```
+
 Usage
 ===
 
