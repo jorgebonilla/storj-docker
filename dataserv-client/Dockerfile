@@ -6,18 +6,14 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV SJCX_ADDRESS=1NytpEjVPRhJxzdbdxZZGFm5sbiZFgVW3Y
 
 # 1 - Install dataserv-client v1.1.0
-
 RUN apt-get update && \
-apt-get install -y python3-pip &&\
-pip3 install dataserv-client
+apt-get install -y python-pip &&\
+pip install dataserv-client
 
 #2 - Clean up
 
 RUN apt-get clean &&\
 apt-get purge
-
-#3 - Update Dataserv-client
-RUN pip3 install dataserv-client --upgrade #2.1.3
 
 #4 - Create dataserv mountpoint
 RUN mkdir /var/storj
