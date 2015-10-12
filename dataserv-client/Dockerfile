@@ -7,7 +7,7 @@ ENV SJCX_ADDRESS=1NytpEjVPRhJxzdbdxZZGFm5sbiZFgVW3Y
 
 # 1 - Install dataserv-client v1.1.0
 RUN apt-get update && \
-apt-get install -y python-pip &&\
+apt-get install -y python-pip python-dev &&\
 pip install dataserv-client
 
 #2 - Clean up
