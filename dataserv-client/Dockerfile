@@ -20,3 +20,5 @@ RUN mkdir /var/storj
 
 #5 Register payout address - Change this address to your own before running
 RUN dataserv-client --url=http://switch.driveshare.org config --set_payout_address=$SJCX_ADDRESS
+
+CMD dataserv-client --store_path=/var/storj farm
