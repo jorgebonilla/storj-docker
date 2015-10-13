@@ -1,0 +1,4 @@
+dataserv-client:
+  build: .
+  volumes:
+   - /media/storj:/var/storj
